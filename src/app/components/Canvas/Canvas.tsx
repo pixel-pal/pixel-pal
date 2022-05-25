@@ -13,7 +13,7 @@ const Canvas = (props : Object) => {
     const handleCanvasClick = (event : any) => {
         const currentCoord = { x: event.clientX, y: event.clientY}
         console.log(currentCoord)
-        setCoordinates([currentCoord])
+        // setCoordinates([currentCoord])
     }
     
     useEffect(() => {
