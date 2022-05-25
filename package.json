@@ -12,7 +12,7 @@
     "prepare": "husky install",
     "format:lint": "npx eslint --ext .jsx --ext .js . --fix",
     "format:pretty": "prettier --write '**/*.{jsx,js,css,html}'",
-    "style-test": "tsc && prettier --check . && eslint . && stylelint \"**/*.css\"",
+    "style-test": "tsc && prettier --write . && eslint . && stylelint \"**/*.css\"",
     "start": "node dist/server.js"
   },
   "devDependencies": {
