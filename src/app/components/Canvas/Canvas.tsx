@@ -1,19 +1,22 @@
 import React, { useRef, useEffect, useState } from 'react';
+import { Coordinate } from '../../types';
 
 const Canvas = (props : Object) => {
     const canvasRef = useRef(null);
-    const [coordinates, setCoordinates] = useState<Number[]>([]);
+    const [coordinates, setCoordinates] = useState<Coordinate[]>([]);
 
-    const draw = (ctx: any, location : any) => {
+    const draw = (ctx: any, location : Coordinate) => {
+        console.log(location)
         ctx.fillStyle = 'rgba(59, 108, 212, 0.5)'
-        ctx.translate(location.x, location.y)
-        ctx.fillRect(0, 0, 10, 10)
+        const adjX : number = location.x;
+        const adjY : number = location.y;
+        ctx.fillRect(adjX, adjY, 10, 10)
     }
 
     const handleCanvasClick = (event : any) => {
         const currentCoord = { x: event.clientX, y: event.clientY}
-        console.log(currentCoord)
-        // setCoordinates([currentCoord])
+        setCoordinates([...coordinates, currentCoord])
+        console.log(coordinates)
     }
     
     useEffect(() => {
@@ -23,7 +26,7 @@ const Canvas = (props : Object) => {
 
         coordinates.forEach((coordinate) => draw(ctx, coordinate))
 
-    }, [])
+    }, [coordinates])
 
     return(
         <div>
