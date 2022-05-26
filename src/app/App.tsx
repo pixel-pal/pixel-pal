@@ -1,12 +1,9 @@
 import React from 'react';
-import styles from './App.module.css';
+import './App.module.css';
 import Canvas from './components/Canvas/Canvas';
 
 function App(): JSX.Element {
-
-  return (
-    <Canvas/>
-  );
+  return <Canvas />;
 }
 
 export default App;
