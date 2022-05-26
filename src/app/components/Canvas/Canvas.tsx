@@ -4,29 +4,40 @@ import { Coordinate } from '../../types';
 const Canvas = (props : Object) => {
     const canvasRef = useRef(null);
     const [coordinates, setCoordinates] = useState<Coordinate[]>([]);
+    const [context, setContext] = useState(null);
 
-    const draw = (ctx: any, location : Coordinate) => {
+    function draw(location : Coordinate){
+        context.fillStyle = 'rgba(59, 108, 212, 0.5)'
         console.log(location)
-        ctx.fillStyle = 'rgba(59, 108, 212, 0.5)'
         const adjX : number = location.x;
         const adjY : number = location.y;
-        ctx.fillRect(adjX, adjY, 10, 10)
+        context.fillRect(adjX, adjY, 50, 50);
     }
 
     const handleCanvasClick = (event : any) => {
-        const currentCoord = { x: event.clientX, y: event.clientY}
+        const canvas : any = canvasRef.current;
+        const rect = canvas.getBoundingClientRect();
+        let xCoor = event.clientX - rect.left;
+        let yCoor = event.clientY - rect.top;
+        // xCoor = Math.floor(16 * xCoor / canvas.clientWidth)
+        // yCoor = Math.floor(16 * yCoor /canvas.clientHeight)
+        const currentCoord = { x: xCoor, y: yCoor}
+        draw(currentCoord);
         setCoordinates([...coordinates, currentCoord])
-        console.log(coordinates)
     }
     
     useEffect(() => {
         const canvas : any = canvasRef.current;
-        const ctx = canvas.getContext('2d');
-        ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
+        setContext(canvas.getContext('2d'));
+        if(!canvas.getContext) return;
 
-        coordinates.forEach((coordinate) => draw(ctx, coordinate))
+        console.log(coordinates)
 
-    }, [coordinates])
+        if(coordinates.length){
+            draw(coordinates[coordinates.length - 1])
+        }
+
+    }, [])
 
     return(
         <div>
