@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
+import { CirclePicker } from 'react-color';
+import DrawingPanel from './DrawingPanel';
+import "../styles/editor.scss";
 
-export default function Setup() {
-  const [panelWidth, setPanelWidth] = useState<number>(16);
+export default function Editor() {
+  const [panelWidth, setPanelWidth] = useState(16);
   const [panelHeight, setPanelHeight] = useState(16);
   const [hideOptions, setHideOptions] = useState(false);
   const [hideDrawingPanel, setHideDrawingPanel] = useState(true);
   const [buttonText, setButtonText] = useState('start drawing');
-//   const [selectedColor, setColor] = useState('#f44336');
+  const [selectedColor, setColor] = useState('#f44336');
 
   function initializeDrawingPanel() {
     setHideOptions(!hideOptions);
@@ -24,8 +27,12 @@ export default function Setup() {
     setPanelHeight(e.target.value);
   }
 
+  const changeColor = (color : any) => {
+    setColor(color.hex)
+  }
+
   return (
-    <div id="setup">
+    <div id="editor">
       <h1>Pixel Editor</h1>
       {hideDrawingPanel && <h2>Enter Panel Dimensions</h2>}
       {hideDrawingPanel && (
@@ -35,7 +42,9 @@ export default function Setup() {
               type="number"
               className="panelInput"
               defaultValue={panelWidth}
-              onChange={handleWidth}
+              onChange={(e) => {
+                setPanelWidth(e.target.value);
+              }}
             />
             <span>Width</span>
           </div>
@@ -44,15 +53,30 @@ export default function Setup() {
               type="number"
               className="panelInput"
               defaultValue={panelHeight}
-              onChange={handleHeight}
+              onChange={(e) => {
+                setPanelHeight(e.target.value);
+              }}
             />
             <span>Height</span>
           </div>
         </div>
       )}
+
       <button onClick={initializeDrawingPanel} className="button">
         {buttonText}
       </button>
+
+      {hideOptions && (
+        <CirclePicker color={selectedColor} onChangeComplete={changeColor} />
+      )}
+
+      {hideOptions && (
+        <DrawingPanel
+          width={panelWidth}
+          height={panelHeight}
+          selectedColor={selectedColor}
+        />
+      )}
     </div>
   );
 }
