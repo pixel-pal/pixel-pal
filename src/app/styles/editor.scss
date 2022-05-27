@@ -1,10 +1,10 @@
 @import "properties.scss";
 
 #editor {
-  border: 1px solid $red;
-  border-radius: 0.25rem;
+  background-color: $green;
   padding: 1rem 4rem 2rem 4rem;
   margin-top: 2rem;
+  margin-bottom: 5rem;
 
   display: flex;
   flex-direction: column;

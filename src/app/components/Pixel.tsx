@@ -1,29 +1,29 @@
-import React, { useState } from "react"
-import "../styles/pixel.scss";
+import React, { useState } from 'react';
+import '../styles/pixel.scss';
 
 export default function Pixel(props) {
-  const { selectedColor } = props
+  const { selectedColor } = props;
 
-  const [pixelColor, setPixelColor] = useState("#fff")
-  const [oldColor, setOldColor] = useState(pixelColor)
-  const [canChangeColor, setCanChangeColor] = useState(true)
+  const [pixelColor, setPixelColor] = useState('#fff');
+  const [oldColor, setOldColor] = useState(pixelColor);
+  const [canChangeColor, setCanChangeColor] = useState(true);
 
   function applyColor() {
-    setPixelColor(selectedColor)
-    setCanChangeColor(false)
+    setPixelColor(selectedColor);
+    setCanChangeColor(false);
   }
 
   function changeColorOnHover() {
-    setOldColor(pixelColor)
-    setPixelColor(selectedColor)
+    setOldColor(pixelColor);
+    setPixelColor(selectedColor);
   }
 
   function resetColor() {
     if (canChangeColor) {
-      setPixelColor(oldColor)
+      setPixelColor(oldColor);
     }
 
-    setCanChangeColor(true)
+    setCanChangeColor(true);
   }
 
   return (
@@ -34,5 +34,5 @@ export default function Pixel(props) {
       onMouseLeave={resetColor}
       style={{ backgroundColor: pixelColor }}
     ></div>
-  )
+  );
 }

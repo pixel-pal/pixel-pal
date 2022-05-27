@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { CirclePicker } from 'react-color';
 import DrawingPanel from './DrawingPanel';
-import "../styles/editor.scss";
+import '../styles/editor.scss';
 
 export default function Editor() {
   const [panelWidth, setPanelWidth] = useState(16);
@@ -19,21 +19,12 @@ export default function Editor() {
       : setButtonText('start drawing');
   }
 
-  function handleWidth(e: any) {
-    setPanelWidth(e.target.value);
-  }
-
-  function handleHeight(e: any) {
-    setPanelHeight(e.target.value);
-  }
-
-  const changeColor = (color : any) => {
-    setColor(color.hex)
-  }
+  const changeColor = (color: any) => {
+    setColor(color.hex);
+  };
 
   return (
     <div id="editor">
-      <h1>Pixel Editor</h1>
       {hideDrawingPanel && <h2>Enter Panel Dimensions</h2>}
       {hideDrawingPanel && (
         <div id="options">
