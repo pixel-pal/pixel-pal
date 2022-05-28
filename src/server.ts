@@ -5,8 +5,7 @@ import cors from 'cors';
 import path from 'path';
 import router from './lib/router';
 import http from 'http';
-import { Server, Socket } from 'socket.io'; 
-
+import { Server, Socket } from 'socket.io';
 
 const app = express();
 
@@ -20,38 +19,36 @@ app.get('*', (_req, res) => {
   res.sendFile(path.join(__dirname, '../index.html'));
 });
 
-
 const httpServer = http.createServer(app);
 const io = new Server(httpServer, {
   cors: {
     origin: 'http://localhost:3000',
     methods: ['GET', 'POST'],
-  }
+  },
 });
-  
+
 io.on('connection', (socket: Socket) => {
-  
-  console.log('User connected!')
-    
+  console.log('User connected!');
+
   // socket.emit('message', 'Welcome to Pixel Pal!');
-    
+
   // socket.broadcast.emit('message', 'A user has joined');
-  
+
   socket.on('disconnect', () => {
     io.emit('message', 'A user has left');
-  
+
     console.log(`User disconnected!, ${socket}`);
   });
-  
 });
 
-const PORT = 3001 
+const PORT = 3001;
 
-httpServer.listen(PORT, () => {console.log(`Server running at http://localhost:${PORT}`)});
+httpServer.listen(PORT, () => {
+  console.log(`Server running at http://localhost:${PORT}`);
+});
 
 // import createApp from './app';
 // const PORT = 3001;
-
 
 // createApp().then((app) => {
 //   app.listen(PORT, () => {
