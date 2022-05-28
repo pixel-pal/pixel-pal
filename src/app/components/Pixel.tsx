@@ -23,7 +23,6 @@ export default function Pixel(props: PixelProps) {
     if (canChangeColor) {
       setPixelColor(oldColor);
     }
-
     setCanChangeColor(true);
   }
 

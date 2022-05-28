@@ -78,6 +78,22 @@
     background-color: $lt_blue;
     padding: 10px;
     border-radius: 10px;
-    margin-bottom: 2em;
+  }
+
+  #drawing-tools {
+    margin-bottom: 1.5em;
+    display: flex;
+
+    button {
+      background-color: $lt_blue;
+      border: none;
+      border-radius: 10px;
+      padding: 0.5em;
+      margin-left: 1em;
+    }
+
+    button:focus {
+      background-color: white;
+    }
   }
 }
