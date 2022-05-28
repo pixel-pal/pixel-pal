@@ -20,7 +20,7 @@ export default function Editor() {
   }
 
   const changeColor = (color: any) => {
-    console.log(color)
+    console.log(color);
     setColor(color.hex);
   };
 
@@ -59,7 +59,9 @@ export default function Editor() {
       </button>
 
       {hideOptions && (
-        <CirclePicker color={selectedColor} onChangeComplete={changeColor} />
+        <div id='color-picker'>
+          <CirclePicker color={selectedColor} onChangeComplete={changeColor} />
+        </div>
       )}
 
       {hideOptions && (

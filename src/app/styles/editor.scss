@@ -58,7 +58,7 @@
 
   .button {
     font-size: 1.25rem;
-    background-color: $blue;
+    background-color: $red;
     color: $white;
     padding: 1rem 2rem;
     border-radius: 10px;
@@ -70,11 +70,14 @@
 
     &:hover {
       cursor: pointer;
-      background-color: $red;
+      background-color: $green;
     }
   }
 
-  .circle-picker {
-    margin-bottom: 1.5rem !important;
+  #color-picker {
+    background-color: $lt_blue;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 2em;
   }
 }

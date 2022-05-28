@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import '../styles/pixel.scss';
-import { PixelProps } from '../../types'
+import { PixelProps } from '../../types';
 
-export default function Pixel(props : PixelProps) {
+export default function Pixel(props: PixelProps) {
   const { selectedColor } = props;
 
   const [pixelColor, setPixelColor] = useState('#fff');
