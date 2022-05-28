@@ -17,11 +17,10 @@ async function createApp() {
   app.get('*', (_req, res) => {
     res.sendFile(path.join(__dirname, 'app/index.html'));
   });
-  
+
   app.use(errorHandler);
 
   return app;
-
 }
 
 export default createApp;

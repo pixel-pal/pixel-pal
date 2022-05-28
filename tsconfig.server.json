@@ -3,7 +3,10 @@
   "compilerOptions": {
     "outDir": "dist",
     "module": "commonjs",
-    "noEmit": false
+    "noEmit": false,
+    "noImplicitAny": false,
+    "noUnusedLocals" : false,
+    "noUnusedParameters": false
   },
   "include": ["src/*.ts"],
   "exclude": ["src/app"]
