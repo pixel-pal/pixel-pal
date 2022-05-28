@@ -1,10 +1,13 @@
 @import "properties.scss";
 
 #editor {
-  background-color: $green;
+  // background-color: $lt_blue;
+  background-image: linear-gradient(to bottom, $blue, $lt_blue);
   padding: 1rem 4rem 2rem 4rem;
   margin-top: 2rem;
   margin-bottom: 5rem;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 
   display: flex;
   flex-direction: column;
@@ -16,6 +19,11 @@
 
   h2 {
     margin-bottom: 1rem;
+  }
+
+  span {
+    font-size: 1.25rem;
+    font-weight: bold;
   }
 
   #options {
@@ -33,15 +41,15 @@
       width: 5rem;
       font-size: 2rem;
       text-align: center;
-      background-color: $black;
-      color: $white;
-      border: 1px solid $grey;
-      border-radius: 0.25rem;
+      background-color: $white;
+      color: $black;
+      border: none;
+      border-radius: 10px;
       margin: 0 1rem 0.5rem 1rem;
       padding-left: 1rem;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 
       &:focus {
-        outline: none !important;
         border-color: $red;
         box-shadow: 0 0 0.5rem $grey;
       }
@@ -50,19 +58,19 @@
 
   .button {
     font-size: 1.25rem;
-    background-color: $red;
+    background-color: $blue;
     color: $white;
-    padding: 1rem 3rem;
-    border-radius: 0.25rem;
+    padding: 1rem 2rem;
+    border-radius: 10px;
     text-transform: uppercase;
     border: 1px solid transparent;
     transition: background-color 0.2s ease-in-out;
     margin-bottom: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 
     &:hover {
       cursor: pointer;
-      background-color: transparent;
-      border-color: $red;
+      background-color: $red;
     }
   }
 

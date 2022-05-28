@@ -1,8 +1,10 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import '../styles/drawingPanel.scss';
 import Row from './Row';
 
-export default function DrawingPanel(props) {
+import { DrawingProps } from '../../types'
+
+export default function DrawingPanel(props : DrawingProps) {
   const { width, height, selectedColor } = props;
 
   const rows = [];
