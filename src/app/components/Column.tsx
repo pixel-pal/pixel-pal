@@ -3,7 +3,6 @@ import '../styles/pixel.scss';
 import { PixelProps } from '../../types';
 import { SocketContext } from '../Socket.jsx';
 
-
 const Column = (props: PixelProps) => {
   const { selectedColor, row, col, canvas, setCanvas } = props;
 
@@ -20,8 +19,8 @@ const Column = (props: PixelProps) => {
     setPixelColor(selectedColor);
     setCanChangeColor(false);
     canvas[row][col] = selectedColor;
-    setCanvas(canvas)
-    socket.emit("draw", { canvas })
+    setCanvas(canvas);
+    socket.emit('draw', { canvas });
   }
 
   function changeColorOnHover() {
@@ -45,6 +44,6 @@ const Column = (props: PixelProps) => {
       style={{ backgroundColor: pixelColor }}
     ></div>
   );
-}
+};
 
 export default Column;

@@ -3,7 +3,14 @@ import { CirclePicker } from 'react-color';
 import DrawingPanel from './DrawingPanel';
 import '../styles/editor.scss';
 
-export default function Editor({ canvas, setCanvas, panelWidth, setPanelWidth, panelHeight, setPanelHeight }) {
+export default function Editor({
+  canvas,
+  setCanvas,
+  panelWidth,
+  setPanelWidth,
+  panelHeight,
+  setPanelHeight,
+}) {
   const [hideOptions, setHideOptions] = useState(false);
   const [hideDrawingPanel, setHideDrawingPanel] = useState(true);
   const [buttonText, setButtonText] = useState('start drawing');
@@ -57,12 +64,18 @@ export default function Editor({ canvas, setCanvas, panelWidth, setPanelWidth, p
       </button>
 
       {hideOptions && (
-        <div id='drawing-tools'>
+        <div id="drawing-tools">
           <div id="color-picker">
-            <CirclePicker color={selectedColor} onChangeComplete={changeColor} />
+            <CirclePicker
+              color={selectedColor}
+              onChangeComplete={changeColor}
+            />
           </div>
           <button
-            onClick={() => { setColor('#FFFFFF') }}>
+            onClick={() => {
+              setColor('#FFFFFF');
+            }}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="32"

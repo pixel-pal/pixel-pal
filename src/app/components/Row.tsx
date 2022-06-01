@@ -9,7 +9,16 @@ export default function Row(props: RowProps) {
   const pixels = [];
 
   for (let i = 0; i < width; i++) {
-    pixels.push(<Column key={i} row={row} col={i} selectedColor={selectedColor} canvas={canvas} setCanvas={setCanvas} />);
+    pixels.push(
+      <Column
+        key={i}
+        row={row}
+        col={i}
+        selectedColor={selectedColor}
+        canvas={canvas}
+        setCanvas={setCanvas}
+      />
+    );
   }
 
   return <div className="row">{pixels}</div>;
