@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import '../styles/pixel.scss';
 import { PixelProps } from '../../types';
+import { SocketContext } from '../Socket.jsx';
+
 
 const Column = (props: PixelProps) => {
   const { selectedColor, row, col, canvas, setCanvas } = props;
@@ -8,13 +10,18 @@ const Column = (props: PixelProps) => {
   const [pixelColor, setPixelColor] = useState('#fff');
   const [oldColor, setOldColor] = useState(pixelColor);
   const [canChangeColor, setCanChangeColor] = useState(true);
+  const socket = useContext(SocketContext);
+  // socket.on('newCanvas', (newCanvas) => {
+  //   console.log('geeeeetting new canvas', newCanvas)
+  //   setCanvas(canvas)
+  // })
 
   function applyColor() {
-        console.log(canvas)
     setPixelColor(selectedColor);
     setCanChangeColor(false);
     canvas[row][col] = selectedColor;
-    setCanvas(canvas);
+    setCanvas(canvas)
+    socket.emit("draw", { canvas })
   }
 
   function changeColorOnHover() {

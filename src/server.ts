@@ -25,8 +25,9 @@ const io = new Server(httpServer, {
 io.on('connection', (socket: Socket) => {
   console.log('User connected!');
   socket.on('draw', (canvas) => {
-    socket.emit('newCanvas', {canvas})
-  })
+    console.log(canvas);
+    socket.broadcast.emit('newCanvas', { canvas });
+  });
   socket.on('disconnect', () => {
     io.emit('message', 'A user has left');
     // console.log(`User disconnected!, ${socket}`);
