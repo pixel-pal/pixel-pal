@@ -1,0 +1,99 @@
+@import "properties.scss";
+
+#editor {
+  // background-color: $lt_blue;
+  background-image: linear-gradient(to bottom, $blue, $lt_blue);
+  padding: 1rem 4rem 2rem 4rem;
+  margin-top: 2rem;
+  margin-bottom: 5rem;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h1 {
+    margin-bottom: 1.5rem;
+  }
+
+  h2 {
+    margin-bottom: 1rem;
+  }
+
+  span {
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+
+  #options {
+    display: flex;
+    margin-bottom: 3rem;
+    justify-content: center;
+
+    .option {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .panelInput {
+      height: 5rem;
+      width: 5rem;
+      font-size: 2rem;
+      text-align: center;
+      background-color: $white;
+      color: $black;
+      border: none;
+      border-radius: 10px;
+      margin: 0 1rem 0.5rem 1rem;
+      padding-left: 1rem;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+
+      &:focus {
+        border-color: $red;
+        box-shadow: 0 0 0.5rem $grey;
+      }
+    }
+  }
+
+  .button {
+    font-size: 1.25rem;
+    background-color: $red;
+    color: $white;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    text-transform: uppercase;
+    border: 1px solid transparent;
+    transition: background-color 0.2s ease-in-out;
+    margin-bottom: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+
+    &:hover {
+      cursor: pointer;
+      background-color: $green;
+    }
+  }
+
+  #color-picker {
+    background-color: $lt_blue;
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  #drawing-tools {
+    margin-bottom: 1.5em;
+    display: flex;
+
+    button {
+      background-color: $lt_blue;
+      border: none;
+      border-radius: 10px;
+      padding: 0.5em;
+      margin-left: 1em;
+    }
+
+    button:focus {
+      background-color: white;
+    }
+  }
+}
