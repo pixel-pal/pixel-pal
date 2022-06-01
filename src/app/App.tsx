@@ -23,8 +23,9 @@ function App(): JSX.Element {
   const socket = useContext(SocketContext);
   socket.on('newCanvas', (newCanvas) => {
     console.log('geeeeetting new canvas', newCanvas);
-    setCanvas(canvas);
+    setCanvas(newCanvas);
   });
+
 
   return (
     <div className="App">
