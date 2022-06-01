@@ -12,3 +12,5 @@ export type RowProps = {
 export type PixelProps = {
   selectedColor: string;
 };
+
+export type Canvas = string[][];

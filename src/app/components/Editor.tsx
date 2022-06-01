@@ -3,9 +3,7 @@ import { CirclePicker } from 'react-color';
 import DrawingPanel from './DrawingPanel';
 import '../styles/editor.scss';
 
-export default function Editor() {
-  const [panelWidth, setPanelWidth] = useState<string | number>(16);
-  const [panelHeight, setPanelHeight] = useState<string | number>(16);
+export default function Editor( {canvas, setCanvas, panelWidth, setPanelWidth, panelHeight, setPanelHeight}) {
   const [hideOptions, setHideOptions] = useState(false);
   const [hideDrawingPanel, setHideDrawingPanel] = useState(true);
   const [buttonText, setButtonText] = useState('start drawing');
@@ -84,6 +82,8 @@ export default function Editor() {
           width={panelWidth}
           height={panelHeight}
           selectedColor={selectedColor}
+          canvas = {canvas}
+          setCanvas = {setCanvas}
         />
       )}
     </div>

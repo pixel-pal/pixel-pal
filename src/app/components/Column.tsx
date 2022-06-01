@@ -2,16 +2,19 @@ import React, { useState } from 'react';
 import '../styles/pixel.scss';
 import { PixelProps } from '../../types';
 
-export default function Pixel(props: PixelProps) {
-  const { selectedColor } = props;
+const Column = (props: PixelProps) => {
+  const { selectedColor, row, col, canvas, setCanvas } = props;
 
   const [pixelColor, setPixelColor] = useState('#fff');
   const [oldColor, setOldColor] = useState(pixelColor);
   const [canChangeColor, setCanChangeColor] = useState(true);
 
   function applyColor() {
+        console.log(canvas)
     setPixelColor(selectedColor);
     setCanChangeColor(false);
+    canvas[row][col] = selectedColor;
+    setCanvas(canvas);
   }
 
   function changeColorOnHover() {
@@ -36,3 +39,5 @@ export default function Pixel(props: PixelProps) {
     ></div>
   );
 }
+
+export default Column;
